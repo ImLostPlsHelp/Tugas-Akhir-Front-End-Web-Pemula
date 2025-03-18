@@ -144,12 +144,15 @@ function makeBook(bookObject) {
 
   const textTitle = document.createElement('h3');
   textTitle.innerText = title;
+  textTitle.setAttribute('data-testid', 'bookItemTitle');
 
   const textAuthor = document.createElement('p');
   textAuthor.innerText = author;
+  textAuthor.setAttribute('data-testid', 'bookItemAuthor');
 
   const textYear = document.createElement('p');
   textYear.innerText = year;
+  textYear.setAttribute('data-testid', 'bookItemYear');
 
   const textContainer = document.createElement('div');
   textContainer.classList.add('inner');

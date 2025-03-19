@@ -43,7 +43,7 @@ function isStorageExist() /* boolean */ {
 function findBook(bookId) {
   for (const bookItem of books) {
     if (bookItem.id === bookId) {
-      return bookId;
+      return bookItem;
     }
   }
   return null;

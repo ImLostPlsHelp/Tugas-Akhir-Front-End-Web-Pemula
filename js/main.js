@@ -188,7 +188,12 @@ function makeBook(bookObject) {
     const editButton = document.createElement('button');
     editButton.classList.add('edit-button');
     editButton.addEventListener('click', function () {
-      showEdit();
+      showEditForm();
+      const editForm = document.getElementById('editBookForm');
+        editForm.addEventListener('submit', function (event) {
+          event.preventDefault();
+          editBookItem(id)
+      })
     });
 
     container.append(checkButton);
@@ -214,7 +219,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const submitForm /* HTMLFormElement */ = document.getElementById('bookForm');
   const searchForm = document.getElementById('searchBook');
-  const editForm = document.getElementById('editBookForm');
 
   submitForm.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -224,11 +228,6 @@ document.addEventListener('DOMContentLoaded', function () {
   searchForm.addEventListener('submit', function (event) {
     event.preventDefault();
     searchBookByName();
-  })
-
-  editForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    editBookItem() //belum selesai
   })
 
   if (isStorageExist()) {
@@ -263,10 +262,14 @@ function searchBookByName() {
   }
 }
 
-//perlu direvisi
+function showEditForm() {
+  const edit = document.getElementById('editBook');
+  edit.style.display = 'block';
+}
+
+
 function editBookItem(bookId) {
   const bookItem = findBook(bookId);
-  document.getElementById('editBook').style.display = 'block';
   const title = document.getElementById('editBookFormTitle').value;
   const author = document.getElementById('editBookFormAuthor').value;
   const year = document.getElementById('editBookFormYear').value;
@@ -274,6 +277,9 @@ function editBookItem(bookId) {
   bookItem.title = title;
   bookItem.author = author;
   bookItem.year = year;
+  
+  const edit = document.getElementById('editBook');
+  edit.style.display = 'none';
   document.dispatchEvent(new Event(RENDER_EVENT));
   saveData();
 }

@@ -35,6 +35,10 @@
     background: url('../assets/edit-outline.svg');
 }
 
+.edit-button:hover {
+    background: url('../assets/edit-fill.svg');
+}
+
 #editBook {
     display: none;
 }

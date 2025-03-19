@@ -185,7 +185,14 @@ function makeBook(bookObject) {
       addBookToCompleted(id);
     });
 
+    const editButton = document.createElement('button');
+    editButton.classList.add('edit-button');
+    editButton.addEventListener('click', function () {
+      showEdit();
+    });
+
     container.append(checkButton);
+    container.append(editButton);
   }
 
   return container;
@@ -207,6 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const submitForm /* HTMLFormElement */ = document.getElementById('bookForm');
   const searchForm = document.getElementById('searchBook');
+  const editForm = document.getElementById('editBookForm');
 
   submitForm.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -216,6 +224,11 @@ document.addEventListener('DOMContentLoaded', function () {
   searchForm.addEventListener('submit', function (event) {
     event.preventDefault();
     searchBookByName();
+  })
+
+  editForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    editBookItem() //belum selesai
   })
 
   if (isStorageExist()) {
@@ -234,6 +247,7 @@ function searchBookByName() {
 
   if (searchBook === '') {
     document.dispatchEvent(new Event(RENDER_EVENT));
+    return;
   }
   
   for (const bookItem of books) {
@@ -247,4 +261,19 @@ function searchBookByName() {
       }
     }
   }
+}
+
+//perlu direvisi
+function editBookItem(bookId) {
+  const bookItem = findBook(bookId);
+  document.getElementById('editBook').style.display = 'block';
+  const title = document.getElementById('editBookFormTitle').value;
+  const author = document.getElementById('editBookFormAuthor').value;
+  const year = document.getElementById('editBookFormYear').value;
+
+  bookItem.title = title;
+  bookItem.author = author;
+  bookItem.year = year;
+  document.dispatchEvent(new Event(RENDER_EVENT));
+  saveData();
 }

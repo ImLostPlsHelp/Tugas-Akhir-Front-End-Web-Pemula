@@ -1,0 +1,29 @@
+.trash-button {
+    width: 40px;
+    height: 40px;
+
+    background: url('../assets/trash-outline.svg');
+    background-size: contain;
+}
+
+.trash-button:hover {
+    background: url('../assets/trash-fill.svg');
+}
+
+.undo-button {
+    width: 40px;
+    height: 40px;
+
+    background: url('../assets/undo-ouline.svg');
+}
+
+.check-button {
+    width: 40px;
+    height: 40px;
+    
+    background: url('../assets/check-outline.svg');
+}
+
+.check-button:hover {
+    background: url('../assets/check-solid.svg');
+}

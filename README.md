@@ -65,7 +65,7 @@ Berikut contoh implementasi data buku riilnya.
 }
 ```
 
-## Kriteria Wajib 2: Mampu Menambahkan Buku
+## Kriteria Wajib 2: Mampu Menambahkan Buku (Done)
 - Aplikasi harus mampu menyimpan buku baru menggunakan formulir yang telah disediakan dalam starter project.
 - ID buku harus dihasilkan secara otomatis dan unik. Tipsnya, Anda dapat memanfaatkan timestamp sebagai nilainya. Nilai timestamp dapat diperoleh dengan kode new Date().getTime() atau Number(new Date()).
 - Formulir setidaknya bisa menghasilkan empat data berikut.
@@ -75,34 +75,34 @@ Berikut contoh implementasi data buku riilnya.
     - isComplete: kondisi apakah sudah selesai dibaca atau belum.
 
 
-## Kriteria Wajib 3: Memiliki Dua Rak Buku
+## Kriteria Wajib 3: Memiliki Dua Rak Buku (Done)
 - Aplikasi wajib memiliki 2 Rak buku, yakni “Belum selesai dibaca” dan “Selesai dibaca”.
 - Rak "Belum selesai dibaca" hanya menyimpan buku-buku dengan isComplete bernilai false.
 - Rak "Selesai dibaca" hanya menyimpan buku-buku dengan isComplete bernilai true.
 
 
-## Kriteria Wajib 4: Dapat Memindahkan Buku Antar Rak
+## Kriteria Wajib 4: Dapat Memindahkan Buku Antar Rak (Done)
 Buku-buku dalam rak harus dapat dipindahkan ke rak lainnya, baik "Belum selesai dibaca" maupun "Selesai dibaca". Pastikan perubahan ini juga tersimpan dalam localStorage.
 
 
 
-## Kriteria Wajib 5: Dapat Menghapus Data Buku
+## Kriteria Wajib 5: Dapat Menghapus Data Buku (Done)
 Buku yang ditampilkan pada rak, baik itu "Belum selesai dibaca" maupun "Selesai dibaca" harus dapat dihapus. Selain menghilang dari halaman, data buku dalam localStorage juga harus terhapus.
 
 Selain kriteria utama, ada kriteria opsional juga yang dapat Anda penuhi agar mendapat penilaian yang lebih tinggi.
 
-## Kriteria Opsional 1: Menambahkan Fitur Pencarian Buku
+## Kriteria Opsional 1: Menambahkan Fitur Pencarian Buku (Done)
 Memiliki fitur pencarian buku yang telah disimpan dan ditampilkan pada rak sesuai dengan title buku yang dituliskan pada kolom pencarian.
 
-## Kriteria Opsional 2: Menambahkan Fitur Edit Buku
+## Kriteria Opsional 2: Menambahkan Fitur Edit Buku (Done)
 Selain dapat menambahkan baru, buku-buku yang telah tersimpan diharapkan dapat diedit.
 
-## Kriteria Opsional 3: Kode Ditulis Secara Rapi dan Bersih
+## Kriteria Opsional 3: Kode Ditulis Secara Rapi dan Bersih (I think it's done)
 Berikut beberapa indikator yang dapat dicapai agar Anda dapat menulis kode dengan rapi dan bersih.
 
 - Bersihkan comment dan kode jika tidak digunakan.
 - Menggunakan indentasi yang sesuai dan konsisten.
 - Menggunakan penamaan unit (variabel dan function) sesuai dengan maknanya, baik isi nilainya ataupun tugasnya.
 
-## Kriteria Opsional 4: Menerapkan Styling
+## Kriteria Opsional 4: Menerapkan Styling (In progress)
 Dalam starter project, kami hanya memberikan HTML dan JavaScript. Silakan Anda berkreasi dengan CSS untuk menciptakan tampilan yang ciamik. Namun, pastikan tetap memenuhi ketentuan HTML yang ada, ya.

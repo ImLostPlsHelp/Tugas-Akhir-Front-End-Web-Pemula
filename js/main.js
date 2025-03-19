@@ -87,7 +87,7 @@ function loadDataFromStorage() {
   document.dispatchEvent(new Event(RENDER_EVENT));
 }
 
-function addTaskToCompleted(bookId /* HTMLELement */) {
+function addBookToCompleted(bookId /* HTMLELement */) {
   const bookTarget = findBook(bookId);
 
   if (bookTarget == null) return;
@@ -97,7 +97,7 @@ function addTaskToCompleted(bookId /* HTMLELement */) {
   saveData();
 }
 
-function removeTaskFromCompleted(bookId /* HTMLELement */) {
+function removeBookFromCompleted(bookId /* HTMLELement */) {
   const bookTarget = findBookIndex(bookId);
 
   if (bookTarget === -1) return;
@@ -107,7 +107,7 @@ function removeTaskFromCompleted(bookId /* HTMLELement */) {
   saveData();
 }
 
-function undoTaskFromCompleted(bookId /* HTMLELement */) {
+function undoBookFromCompleted(bookId /* HTMLELement */) {
 
   const bookTarget = findBook(bookId);
   if (bookTarget == null) return;
@@ -140,7 +140,7 @@ document.addEventListener(RENDER_EVENT, function () {
 })
 
 function makeBook(bookObject) {
-  const {id, title, author, year, isComplete} = bookObject;
+  const { id, title, author, year, isComplete } = bookObject;
 
   const textTitle = document.createElement('h3');
   textTitle.innerText = title;
@@ -167,13 +167,13 @@ function makeBook(bookObject) {
     const undoButton = document.createElement('button');
     undoButton.classList.add('undo-button');
     undoButton.addEventListener('click', function () {
-      undoTaskFromCompleted(id);
+      undoBookFromCompleted(id);
     });
 
     const trashButton = document.createElement('button');
     trashButton.classList.add('trash-button');
     trashButton.addEventListener('click', function () {
-      removeTaskFromCompleted(id);
+      removeBookFromCompleted(id);
     });
 
     container.append(undoButton, trashButton);
@@ -182,7 +182,7 @@ function makeBook(bookObject) {
     const checkButton = document.createElement('button');
     checkButton.classList.add('check-button');
     checkButton.addEventListener('click', function () {
-      addTaskToCompleted(id);
+      addBookToCompleted(id);
     });
 
     container.append(checkButton);
@@ -206,13 +206,45 @@ function addBook() {
 document.addEventListener('DOMContentLoaded', function () {
 
   const submitForm /* HTMLFormElement */ = document.getElementById('bookForm');
+  const searchForm = document.getElementById('searchBook');
 
   submitForm.addEventListener('submit', function (event) {
     event.preventDefault();
     addBook();
   });
 
+  searchForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    searchBookByName();
+  })
+
   if (isStorageExist()) {
     loadDataFromStorage();
   }
 });
+
+function searchBookByName() {
+  const searchBook = document.getElementById('searchBookTitle').value;
+  const uncompletedBookList = document.getElementById('incompleteBookList');
+  const listCompleted = document.getElementById('completeBookList');
+
+  // clearing list item
+  uncompletedBookList.innerHTML = '';
+  listCompleted.innerHTML = '';
+
+  if (searchBook === '') {
+    document.dispatchEvent(new Event(RENDER_EVENT));
+  }
+  
+  for (const bookItem of books) {
+    bookItem.title = bookItem.title.toString();
+    if (searchBook.toLowerCase() === bookItem.title|| searchBook.toUpperCase() === bookItem.title || searchBook === bookItem.title) {
+      const bookElement = makeBook(bookItem);
+      if (bookItem.isComplete) {
+        listCompleted.append(bookElement);
+      } else {
+        uncompletedBookList.append(bookElement);
+      }
+    }
+  }
+}

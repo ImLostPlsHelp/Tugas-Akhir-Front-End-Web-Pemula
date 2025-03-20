@@ -23,6 +23,7 @@ header {
 
     background: url('../assets/trash-outline.svg');
     background-size: contain;
+    margin-left: 20px;
     border: none;
 }
 
@@ -35,6 +36,8 @@ header {
     height: 50px;
 
     background: url('../assets/undo-ouline.svg');
+    margin-left: auto;
+    cursor: pointer;
     border: none;
 }
 
@@ -43,6 +46,8 @@ header {
     height: 50px;
 
     background: url('../assets/check-outline.svg');
+    margin-left: auto;
+    cursor: pointer;
     border: none;
 }
 
@@ -55,6 +60,7 @@ header {
     height: 50px;
 
     background: url('../assets/edit-outline.svg');
+    margin-left: 20px;
     border: none;
     background-repeat: no-repeat;
 }
@@ -64,6 +70,21 @@ header {
 }
 
 #editBook {
+    box-shadow: 0 5px 10px rgba(154, 160, 185, .05), 0 15px 40px rgba(166, 173, 201, .2);
+    width: 1024px;
+    border-radius: 8px;
+    margin: 16px;
+    background: #F8F9FA;
+    padding: 16px;
+    flex-grow: 1;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-top: 40px;
+    margin-bottom: 8px;
+    font-size: 24px;
+    width: 500px;
     display: none;
 }
 
@@ -124,7 +145,7 @@ label {
 .form {
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 30px;
     background: #ffffff;
     margin-bottom: 8px;
     font-size: 24px;
@@ -133,4 +154,21 @@ label {
 
 .search {
     padding-bottom: 20px;
+}
+
+.book_item {
+    border-radius: 16px;
+    margin-top: 16px;
+    padding: 12px 24px 12px 24px;
+    background: white;
+    display: flex;
+    align-items: center;
+}
+
+.book_item > .inner h2 {
+    margin-bottom: unset;
+}
+
+.book_item > .inner p {
+    margin-top: 5px;
 }

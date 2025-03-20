@@ -16,51 +16,71 @@
     <main>
       <div class="wrapper">
         <div class="input-container">
-        <section class="form input shadow container">
-          <h2>Tambah Buku Baru</h2>
-          <form id="bookForm" data-testid="bookForm">
-            <div>
-              <label for="bookFormTitle">Judul</label>
-              <input id="bookFormTitle" type="text" required
-                data-testid="bookFormTitleInput" />
-            </div>
-            <div>
-              <label for="bookFormAuthor">Penulis</label>
-              <input id="bookFormAuthor" type="text" required
-                data-testid="bookFormAuthorInput" />
-            </div>
-            <div>
-              <label for="bookFormYear">Tahun</label>
-              <input id="bookFormYear" type="number" required
-                data-testid="bookFormYearInput" />
-            </div>
-            <div>
-              <label for="bookFormIsComplete">Selesai dibaca</label>
-              <input
-                id="bookFormIsComplete"
-                type="checkbox"
-                data-testid="bookFormIsCompleteCheckbox" />
-            </div>
-            <button id="bookFormSubmit" type="submit"
-              data-testid="bookFormSubmitButton">
-              Masukkan buku ke rak
-            </button>
-          </form>
-        </section>
+          <section class="form input shadow container">
+            <h2>Tambah Buku Baru</h2>
+            <form id="bookForm" data-testid="bookForm">
+              <div>
+                <label for="bookFormTitle">Judul</label>
+                <input id="bookFormTitle" type="text" required
+                  data-testid="bookFormTitleInput" />
+              </div>
+              <div>
+                <label for="bookFormAuthor">Penulis</label>
+                <input id="bookFormAuthor" type="text" required
+                  data-testid="bookFormAuthorInput" />
+              </div>
+              <div>
+                <label for="bookFormYear">Tahun</label>
+                <input id="bookFormYear" type="number" required
+                  data-testid="bookFormYearInput" />
+              </div>
+              <div>
+                <label for="bookFormIsComplete">Selesai dibaca</label>
+                <input
+                  id="bookFormIsComplete"
+                  type="checkbox"
+                  data-testid="bookFormIsCompleteCheckbox" />
+              </div>
+              <button id="bookFormSubmit" type="submit"
+                data-testid="bookFormSubmitButton">
+                Masukkan buku ke rak
+              </button>
+            </form>
+          </section>
 
-        <section class="form search shadow container">
-          <h2>Cari Buku</h2>
-          <form id="searchBook" data-testid="searchBookForm">
-            <label for="searchBookTitle">Judul</label>
-            <input id="searchBookTitle" type="text"
-              data-testid="searchBookFormTitleInput" />
-            <button id="searchSubmit" type="submit"
-              data-testid="searchBookFormSubmitButton">
-              Cari
+          <section class="form search shadow container">
+            <h2>Cari Buku</h2>
+            <form id="searchBook" data-testid="searchBookForm">
+              <label for="searchBookTitle">Judul</label>
+              <input id="searchBookTitle" type="text"
+                data-testid="searchBookFormTitleInput" />
+              <button id="searchSubmit" type="submit"
+                data-testid="searchBookFormSubmitButton">
+                Cari
+              </button>
+            </form>
+          </section>
+        </div>
+        <section id="editBook">
+          <h2>Edit Buku</h2>
+          <form id="editBookForm">
+            <div>
+              <label for="editBookFormTitle">Judul</label>
+              <input id="editBookFormTitle" type="text" required />
+            </div>
+            <div>
+              <label for="editBookFormAuthor">Penulis</label>
+              <input id="editBookFormAuthor" type="text" required />
+            </div>
+            <div>
+              <label for="editBookFormYear">Tahun</label>
+              <input id="editBookFormYear" type="number" required />
+            </div>
+            <button id="editBookFormSubmit" type="submit">
+              Edit Buku
             </button>
           </form>
         </section>
-      </div>
         <div class="bookshelf">
 
           <section class="bookshelf-incomplete container">
@@ -81,26 +101,6 @@
               Buku yang sudah selesai masuk ke sini  
               -->
             </div>
-          </section>
-          <section id="editBook">
-            <h2>Edit Buku</h2>
-            <form id="editBookForm">
-              <div>
-                <label for="editBookFormTitle">Judul</label>
-                <input id="editBookFormTitle" type="text" required />
-              </div>
-              <div>
-                <label for="editBookFormAuthor">Penulis</label>
-                <input id="editBookFormAuthor" type="text" required />
-              </div>
-              <div>
-                <label for="editBookFormYear">Tahun</label>
-                <input id="editBookFormYear" type="number" required />
-              </div>
-              <button id="editBookFormSubmit" type="submit">
-                Edit Buku
-              </button>
-            </form>
           </section>
         </div>
       </div>

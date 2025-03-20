@@ -102,3 +102,28 @@ header {
     flex: 7;
     padding: 10px;
 }
+
+.input-form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background: #ffffff;
+    border: 2px solid #2e2ee2;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+.container {
+    width: 1024px;
+    border-radius: 8px;
+    margin: 16px;
+    background: #F8F9FA;
+    padding: 16px;
+    flex-grow: 1;
+    height: fit-content;
+}

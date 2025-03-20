@@ -160,7 +160,8 @@ function makeBook(bookObject) {
   const container = document.createElement('div');
   container.classList.add('book_item', 'shadow');
   container.append(textContainer);
-  container.setAttribute('book-id', `id-${id}`);
+  container.setAttribute('data-testid', `bookItem`);
+  container.setAttribute('data-bookid', `${id}`);
 
   if (isComplete) {
     const undoButton = document.createElement('button');
@@ -171,6 +172,7 @@ function makeBook(bookObject) {
 
     const trashButton = document.createElement('button');
     trashButton.classList.add('trash-button');
+    trashButton.setAttribute('data-testid', 'bookItemDeleteButton');
     trashButton.addEventListener('click', function () {
       removeBookFromCompleted(id);
     });
@@ -178,8 +180,16 @@ function makeBook(bookObject) {
     container.append(undoButton, trashButton);
   } else {
 
+    const trashButton = document.createElement('button');
+    trashButton.classList.add('trash-button');
+    trashButton.setAttribute('data-testid', 'bookItemDeleteButton');
+    trashButton.addEventListener('click', function () {
+      removeBookFromCompleted(id);
+    });
+
     const checkButton = document.createElement('button');
     checkButton.classList.add('check-button');
+    checkButton.setAttribute('data-testid', 'bookItemIsCompleteButton');
     checkButton.addEventListener('click', function () {
       addBookToCompleted(id);
     });
@@ -195,20 +205,20 @@ function makeBook(bookObject) {
       })
     });
 
-    container.append(checkButton);
-    container.append(editButton);
+    container.append(checkButton, trashButton, editButton);
   }
 
   return container;
 }
 
 function addBook() {
+  const generateID = generateId();
   const textTitle = document.getElementById('bookFormTitle').value;
   const textAuthor = document.getElementById('bookFormAuthor').value;
-  const textYear = document.getElementById('bookFormYear').value;
+  const textYear = parseInt(document.getElementById('bookFormYear').value);
   const isComplete = document.getElementById('bookFormIsComplete').checked;
 
-  const bookObject = generateBookObject(generateId(), textTitle, textAuthor, textYear, isComplete);
+  const bookObject = generateBookObject(generateID, textTitle, textAuthor, textYear, isComplete);
   books.push(bookObject);
   document.dispatchEvent(new Event(RENDER_EVENT));
   saveData();

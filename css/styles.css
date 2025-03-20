@@ -1,9 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: Raleway, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background: #2e2ee2;
+    padding: 16px;
+    color: white;
+}
+
 .trash-button {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 
     background: url('../assets/trash-outline.svg');
     background-size: contain;
+    border: none;
 }
 
 .trash-button:hover {
@@ -11,17 +31,19 @@
 }
 
 .undo-button {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 
     background: url('../assets/undo-ouline.svg');
+    border: none;
 }
 
 .check-button {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 
     background: url('../assets/check-outline.svg');
+    border: none;
 }
 
 .check-button:hover {
@@ -29,10 +51,12 @@
 }
 
 .edit-button {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 
     background: url('../assets/edit-outline.svg');
+    border: none;
+    background-repeat: no-repeat;
 }
 
 .edit-button:hover {
@@ -41,4 +65,40 @@
 
 #editBook {
     display: none;
+}
+
+.shadow {
+    box-shadow: 0 5px 10px rgba(154, 160, 185, .05), 0 15px 40px rgba(166, 173, 201, .2);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+.input-container {
+    display: flex;
+    flex-direction: row;
+}
+.bookshelf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bookshelf-search {
+    flex: 1;
+    margin-left: 40px;
+    padding: 10px;
+}
+
+.bookshelf-incomplete {
+    flex: 7;
+    padding: 10px;
+}
+
+.bookshelf-complete {
+    flex: 7;
+    padding: 10px;
 }

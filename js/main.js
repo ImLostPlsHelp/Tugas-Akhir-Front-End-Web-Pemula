@@ -66,7 +66,6 @@ function saveData() {
   if (isStorageExist()) {
     const parsed /* string */ = JSON.stringify(books);
     localStorage.setItem(STORAGE_KEY, parsed);
-    document.dispatchEvent(new Event(SAVED_EVENT));
   }
 }
 
